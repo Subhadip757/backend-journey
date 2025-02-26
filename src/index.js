@@ -3,7 +3,7 @@ import { app } from "./app.js";
 import connectDB from "./db/index.js";
 
 dotenv.config({
-    ath: "./.env",
+    ath: "./env",
 });
 
 connectDB()

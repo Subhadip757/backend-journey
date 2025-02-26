@@ -6,14 +6,8 @@ const router = Router();
 
 router.route("/register").post(
     upload.fields([
-        {
-            name: "avatar",
-            maxCount: 1,
-        },
-        {
-            name: "Cover Image",
-            maxCount: 1,
-        },
+        { name: "avatar", maxCount: 1 }, // ✅ Ensure the name is EXACTLY "avatar"
+        { name: "coverImage", maxCount: 1 }, // ✅ Not "Cover Image"
     ]),
     registerUser
 );
