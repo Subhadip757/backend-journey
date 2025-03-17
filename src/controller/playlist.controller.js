@@ -148,7 +148,6 @@ const deletePlaylist = asyncHandler(async (req, res) => {
 const updatePlaylist = asyncHandler(async (req, res) => {
     const { playlistId } = req.params;
     const { name, description } = req.body;
-    const userId = req.user?._id;
 
     if (!name || !description)
         throw new ApiError(404, "Fields cannot be empty");
@@ -164,6 +163,10 @@ const updatePlaylist = asyncHandler(async (req, res) => {
     );
 
     if (!updatedPlaylist) throw new ApiError("Playlist not found");
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, "Playlist updated successfully"));
 });
 
 export {
